@@ -1,0 +1,27 @@
+package:
+  name: insensitive-strenum
+  version: "{{ POETRY_VERSION }}"
+
+source:
+  path: ".."
+
+requirements:
+  build:
+    - python >=3.11
+    - pip
+    - poetry
+
+  run:
+    - python >=3.11
+
+build:
+  script: "{{ PYTHON }} -m pip install --no-deps --ignore-installed ."
+  noarch: python
+
+about:
+  home: https://github.com/abrahammurciano/python-insensitive-strenum
+  license: GPLv3
+  summary: "A case insensitive StrEnum"
+  description: "A case insensitive StrEnum"
+  dev_url: https://github.com/abrahammurciano/python-insensitive-strenum
+  doc_url: https://abrahammurciano.github.io/python-insensitive-strenum/insensitive-strenum
