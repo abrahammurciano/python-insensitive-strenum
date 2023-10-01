@@ -22,3 +22,21 @@ $ conda install -c abrahammurciano insensitive-strenum
 [![Anaconda - insensitive-strenum](https://img.shields.io/badge/Anaconda-insensitive_strenum-44A833?style=for-the-badge&logo=Anaconda&logoColor=%23FFFFFF)](https://anaconda.org/abrahammurciano/insensitive-strenum)
 
 ## Usage
+
+```python
+from insensitive_strenum import InsensitiveStrEnum
+
+class Color(InsensitiveStrEnum):
+	RED = 'red'
+	GREEN = 'green'
+	BLUE = 'blue'
+```
+
+```python
+>>> Color('RED')
+<Color.RED: 'red'>
+>>> Color('red')
+<Color.RED: 'red'>
+>>> Color('Red')
+<Color.RED: 'red'>
+```
