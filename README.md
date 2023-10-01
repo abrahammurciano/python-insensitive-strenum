@@ -6,6 +6,7 @@ A case insensitive StrEnum
 You can install this package with pip.
 ```sh
 $ pip install insensitive-strenum
+```
 
 ## Links
 
