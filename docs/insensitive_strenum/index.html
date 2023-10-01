@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
 <title>insensitive_strenum API documentation</title>
-<meta name="description" content="Python Package Template …" />
+<meta name="description" content="insensitive-strenum
+A case insensitive StrEnum …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -22,119 +23,6 @@
 <h1 class="title">Package <code>insensitive_strenum</code></h1>
 </header>
 <section id="section-intro">
-<h1 id="python-package-template">Python Package Template</h1>
-<p>This repository contains the basic structure for a python package as well as some useful GitHub actions for maintaining the package.</p>
-<p>In order to use this template you must perform the following steps. In each step I will explain how you can do it manually and I will also provide commands (sorry windows users, sucks to suck) to automate the process where possible.</p>
-<h2 id="1-set-command-variables">1. Set command variables</h2>
-<p>In the following instructions, commands will make reference to several variables. You can set these variables now so you can run all subsequent commands without having to edit them. (Replace <code>&hellip;</code> with actual values.)</p>
-<pre><code class="language-sh">PACKAGE=&quot;...&quot; # The name of your package. Use kebab-case.
-MODULE=$(echo $PACKAGE | tr - _) # The name of your module. Should be the package name in snake_case.
-PACKAGE_DESCRIPTION=&quot;...&quot; # A short description of your package
-YOUR_NAME=&quot;...&quot; # Your name. Use spaces and start each word with an uppercase letter
-YOUR_EMAIL=&quot;...&quot; # Your email address
-GITHUB_USERNAME=&quot;...&quot; # Your GitHub username
-ANACONDA_USERNAME=&quot;...&quot; # Your Anaconda username
-MIN_PYTHON_VERSION=&quot;...&quot; # The minimum version of Python required to use this package
-</code></pre>
-<p>If you won't be using the commands below, just make a note of the values you would give to each variable for when they're needed.</p>
-<h2 id="2-clone-the-template">2. Clone the template</h2>
-<p>Download the code and place it in a folder, then enter the folder. From now on all commands will be relative to this folder.</p>
-<pre><code class="language-sh">git clone https://github.com/abrahammurciano/python-package-template.git python-$PACKAGE
-cd python-$PACKAGE
-rm -rf .git
-</code></pre>
-<h2 id="3-replace-placeholder-text">3. Replace placeholder text</h2>
-<p>There are several placeholders that you must replace with values from step 1. These match this regular expression: <code>&lt;&lt;[A-Z_]+&gt;&gt;</code>. You can use your IDE to find all such placeholders and replace them, or you can use the following commands to do the same.</p>
-<pre><code class="language-sh">find ./ -type f -exec sed -i -e &quot;s/insensitive-strenum/$PACKAGE/g&quot; {} \;
-find ./ -type f -exec sed -i -e &quot;s/insensitive_strenum/$MODULE/g&quot; {} \;
-find ./ -type f -exec sed -i -e &quot;s/A case insensitive StrEnum/$PACKAGE_DESCRIPTION/g&quot; {} \;
-find ./ -type f -exec sed -i -e &quot;s/Abraham Murciano/$YOUR_NAME/g&quot; {} \;
-find ./ -type f -exec sed -i -e &quot;s/abrahammurciano@gmail.com/$YOUR_EMAIL/g&quot; {} \;
-find ./ -type f -exec sed -i -e &quot;s/abrahammurciano/$GITHUB_USERNAME/g&quot; {} \;
-find ./ -type f -exec sed -i -e &quot;s/abrahammurciano/$ANACONDA_USERNAME/g&quot; {} \;
-find ./ -type f -exec sed -i -e &quot;s/3.11/$MIN_PYTHON_VERSION/g&quot; {} \;
-</code></pre>
-<p>Also don't forget to replace any occurences of a placeholder in folder and file names.</p>
-<pre><code class="language-sh">mv 'insensitive_strenum' $MODULE
-</code></pre>
-<h2 id="4-create-a-github-repository">4. Create a GitHub repository</h2>
-<ul>
-<li>Click <a href="https://github.com/new">here</a> to create a new GitHub repository.</li>
-<li>Name it <code>python-$PACKAGE</code>.</li>
-<li>Enter the value of <code>$PACKAGE_DESCRIPTION</code> as the description.</li>
-<li>Don't initialize the repository with a readme, a .gitignore, a license, or any other files.</li>
-</ul>
-<h2 id="5-store-the-necessary-credentials">5. Store the necessary credentials</h2>
-<h3 id="create-the-necessary-accounts">Create the necessary accounts</h3>
-<ul>
-<li>Create a <a href="https://pypi.org/account/register/">PyPI</a> account if you don't have one.</li>
-<li>Create an <a href="https://anaconda.org/account/register">Anaconda</a> account if you don't have one.</li>
-</ul>
-<h3 id="create-a-github-personal-access-token">Create a GitHub personal access token</h3>
-<ul>
-<li>Go to <code>Settings</code> &gt; <code>Developer settings</code> &gt; <code>Personal access tokens</code> &gt; <code>Generate new token</code>.</li>
-<li>Name it <code>GitHub Actions for $PACKAGE</code>.</li>
-<li>Set it to not expire.</li>
-<li>Select <code>repo</code> as the <code>Scopes</code> field.</li>
-<li>Click <code>Generate token</code>.</li>
-<li>Copy it for the next step.</li>
-</ul>
-<h3 id="grant-write-access-to-github-actions">Grant write access to GitHub Actions</h3>
-<ul>
-<li>Go to <code>your repository</code> &gt; <code>Settings</code> &gt; <code>Actions</code> &gt; <code>General</code>.</li>
-<li>Under <code>Workflow permissions</code> select <code>Read and write permissions</code>.</li>
-<li>Click <code>Save</code>.</li>
-</ul>
-<h3 id="create-the-necessary-secrets">Create the necessary secrets</h3>
-<ul>
-<li>Go to <code>your repository</code> &gt; <code>Settings</code> &gt; <code>Secrets</code> &gt; <code>Actions</code>.</li>
-<li>Create four new repository secrets:<ul>
-<li><code>PYPI_USERNAME</code></li>
-<li><code>PYPI_PASSWORD</code></li>
-<li><code>ANACONDA_USERNAME</code></li>
-<li><code>ANACONDA_PASSWORD</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="6-push-your-code-to-github">6. Push your code to GitHub</h2>
-<p>You can push your code with the following commands.</p>
-<pre><code class="language-sh">git init
-git add .
-git commit -m &quot;Initial commit&quot;
-git branch -M main
-git remote add origin https://github.com/$GITHUB_USERNAME/python-$PACKAGE.git
-git push -u origin main
-</code></pre>
-<h2 id="7-enable-github-pages">7. Enable GitHub pages</h2>
-<ul>
-<li>Go to <code>your repository</code> &gt; <code>Settings</code> &gt; <code>Pages</code>.</li>
-<li>Under <code>source</code> select the branch <code>main</code>.</li>
-<li>Then for the folder, instead of <code>/ (root)</code> choose <code>/docs</code>.</li>
-<li>Click save.</li>
-</ul>
-<h2 id="8-enforce-ci-on-pull-requests-to-main">8. Enforce CI on pull requests to main</h2>
-<p>First you must trigger the flow once so GitHub is aware of its existance.</p>
-<ul>
-<li>Go to <code>your repository</code> &gt; <code>Actions</code> &gt; <code>Tests</code> &gt; <code>Run Workflow</code> &gt; <code>Run Workflow</code></li>
-<li>Go to <code>your repository</code> &gt; <code>Actions</code> &gt; <code>Docs &amp; Format</code> &gt; <code>Run Workflow</code> &gt; <code>Run Workflow</code></li>
-</ul>
-<p>Now you can require the test flow to run.</p>
-<ul>
-<li>Go to <code>your repository</code> &gt; <code>Settings</code> &gt; <code>Branches</code> &gt; <code>Add branch protection rule</code>.</li>
-<li>For the <code>Branch name pattern</code> type <code>main</code>.</li>
-<li>Check <code>Require status checks to pass before merging</code>.</li>
-<li>Type <code>test</code>, make sure it comes up in autocomplete, and click it.</li>
-<li>Type <code>docs_and_format</code>, make sure it comes up in autocomplete, and click it.</li>
-<li>Then click <code>Save changes</code>.</li>
-</ul>
-<h2 id="9-some-notes">9. Some notes</h2>
-<ul>
-<li>If your minimum python version is less than 3.8, replace <code>importlib.metadata</code> with <code>importlib_metadata</code> in your <code>__init__.py</code> and add it as a dependency.</li>
-</ul>
-<pre><code class="language-sh">poetry add importlib_metadata
-</code></pre>
-<h2 id="10-delete-these-instructions">10. Delete these instructions</h2>
-<p>Remove the text up to here from this file.</p>
 <h1 id="insensitive-strenum">insensitive-strenum</h1>
 <p>A case insensitive StrEnum</p>
 <h2 id="installation">Installation</h2>
@@ -149,6 +37,20 @@ git push -u origin main
 <p><a href="https://pypi.org/project/insensitive-strenum/"><img alt="PyPI - insensitive-strenum" src="https://img.shields.io/badge/PyPI-insensitive_strenum-006DAD?style=for-the-badge&amp;logo=PyPI&amp;logoColor=%23FFD242"></a></p>
 <p><a href="https://anaconda.org/abrahammurciano/insensitive-strenum"><img alt="Anaconda - insensitive-strenum" src="https://img.shields.io/badge/Anaconda-insensitive_strenum-44A833?style=for-the-badge&amp;logo=Anaconda&amp;logoColor=%23FFFFFF"></a></p>
 <h2 id="usage">Usage</h2>
+<pre><code class="language-python">from insensitive_strenum import InsensitiveStrEnum
+
+class Color(InsensitiveStrEnum):
+    RED = 'red'
+    GREEN = 'green'
+    BLUE = 'blue'
+</code></pre>
+<pre><code class="language-python">&gt;&gt;&gt; Color('RED')
+&lt;Color.RED: 'red'&gt;
+&gt;&gt;&gt; Color('red')
+&lt;Color.RED: 'red'&gt;
+&gt;&gt;&gt; Color('Red')
+&lt;Color.RED: 'red'&gt;
+</code></pre>
 </section>
 <section>
 </section>
@@ -157,31 +59,29 @@ git push -u origin main
 <section>
 </section>
 <section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="insensitive_strenum.InsensitiveStrEnum"><code class="flex name class">
+<span>class <span class="ident">InsensitiveStrEnum</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A case-insensitive string enum.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>enum.StrEnum</li>
+<li>builtins.str</li>
+<li>enum.ReprEnum</li>
+<li>enum.Enum</li>
+</ul>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
 <h1>Index</h1>
 <div class="toc">
 <ul>
-<li><a href="#python-package-template">Python Package Template</a><ul>
-<li><a href="#1-set-command-variables">1. Set command variables</a></li>
-<li><a href="#2-clone-the-template">2. Clone the template</a></li>
-<li><a href="#3-replace-placeholder-text">3. Replace placeholder text</a></li>
-<li><a href="#4-create-a-github-repository">4. Create a GitHub repository</a></li>
-<li><a href="#5-store-the-necessary-credentials">5. Store the necessary credentials</a><ul>
-<li><a href="#create-the-necessary-accounts">Create the necessary accounts</a></li>
-<li><a href="#create-a-github-personal-access-token">Create a GitHub personal access token</a></li>
-<li><a href="#grant-write-access-to-github-actions">Grant write access to GitHub Actions</a></li>
-<li><a href="#create-the-necessary-secrets">Create the necessary secrets</a></li>
-</ul>
-</li>
-<li><a href="#6-push-your-code-to-github">6. Push your code to GitHub</a></li>
-<li><a href="#7-enable-github-pages">7. Enable GitHub pages</a></li>
-<li><a href="#8-enforce-ci-on-pull-requests-to-main">8. Enforce CI on pull requests to main</a></li>
-<li><a href="#9-some-notes">9. Some notes</a></li>
-<li><a href="#10-delete-these-instructions">10. Delete these instructions</a></li>
-</ul>
-</li>
 <li><a href="#insensitive-strenum">insensitive-strenum</a><ul>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#links">Links</a></li>
@@ -191,6 +91,13 @@ git push -u origin main
 </ul>
 </div>
 <ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="insensitive_strenum.InsensitiveStrEnum" href="#insensitive_strenum.InsensitiveStrEnum">InsensitiveStrEnum</a></code></h4>
+</li>
+</ul>
+</li>
 </ul>
 </nav>
 </main>
