@@ -3,13 +3,9 @@ A case insensitive StrEnum
 
 ## Installation
 
-You can install this package with pip or conda.
+You can install this package with pip.
 ```sh
 $ pip install insensitive-strenum
-```
-```sh
-$ conda install -c abrahammurciano insensitive-strenum
-```
 
 ## Links
 
@@ -18,8 +14,6 @@ $ conda install -c abrahammurciano insensitive-strenum
 [![Source Code - GitHub](https://img.shields.io/badge/Source_Code-GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=%23FFFFFF)](https://github.com/abrahammurciano/python-insensitive-strenum.git)
 
 [![PyPI - insensitive-strenum](https://img.shields.io/badge/PyPI-insensitive_strenum-006DAD?style=for-the-badge&logo=PyPI&logoColor=%23FFD242)](https://pypi.org/project/insensitive-strenum/)
-
-[![Anaconda - insensitive-strenum](https://img.shields.io/badge/Anaconda-insensitive_strenum-44A833?style=for-the-badge&logo=Anaconda&logoColor=%23FFFFFF)](https://anaconda.org/abrahammurciano/insensitive-strenum)
 
 ## Usage
 
