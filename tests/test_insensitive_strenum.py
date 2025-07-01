@@ -1,24 +1,38 @@
+import itertools
+from typing import Iterable
+
 import pytest
 
 from insensitive_strenum import InsensitiveStrEnum
 
 
-class Foo(InsensitiveStrEnum):
-    BAR = "bar"
-    BAZ = "baz"
+class EnumValues(InsensitiveStrEnum):
+    LOWER = "lower"
+    UPPER = "UPPER"
+    MIXED = "MiXeD"
 
 
-def test_insensitive_strenum():
-    assert Foo("BAR") is Foo.BAR
-    assert Foo("bar") is Foo.BAR
-    assert Foo("Bar") is Foo.BAR
-    assert Foo("bAr") is Foo.BAR
-    assert Foo("BAZ") is Foo.BAZ
-    assert Foo("baz") is Foo.BAZ
-    assert Foo("Baz") is Foo.BAZ
-    assert Foo("bAz") is Foo.BAZ
+@pytest.fixture(params=[EnumValues.LOWER, EnumValues.UPPER, EnumValues.MIXED])
+def member(request: pytest.FixtureRequest) -> EnumValues:
+    return request.param
 
 
-def test_insensitive_strenum_missing():
+@pytest.fixture
+def values(member: EnumValues) -> Iterable[str]:
+    return (
+        "".join(
+            char.upper() if upper else char.lower()
+            for char, upper in zip(member, cases)
+        )
+        for cases in itertools.product((False, True), repeat=len(member))
+    )
+
+
+def test_insensitive_strenum(member: EnumValues, values: Iterable[str]) -> None:
+    for value in values:
+        assert EnumValues(value) is member
+
+
+def test_insensitive_strenum_missing() -> None:
     with pytest.raises(ValueError):
-        Foo("qux")
+        EnumValues("not-a-member")
