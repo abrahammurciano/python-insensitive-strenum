@@ -19,6 +19,6 @@ class InsensitiveStrEnum(StrEnum):
     def _missing_(cls, value: object) -> Any:
         value = value.lower() if isinstance(value, str) else value
         for member in cls:
-            if member == value:
+            if value in (member, member.lower()):
                 return member
         return None
